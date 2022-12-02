@@ -5,12 +5,12 @@ import { SearchBox } from "./SearchBox";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-const ShowBox = ({ data }) => {
+const ShowBox = ({ data, status }) => {
   const location = useLocation();
 
   const HandleFavorite = (data_id) => {
     axios
-      .post("http://localhost:8080/getdata/favorite", data_id)
+      .post("https://projectpresent.vercel.app/getdata/favorite", data_id)
       .then((res) => {
         console.log(res.data);
       })
@@ -77,8 +77,8 @@ const ShowBox = ({ data }) => {
                         borderRadius: "25px",
                         fontSize: "25px",
                         padding: "2",
-                        color: el.favorite ? "red" : "",
-                        fill: el.favorite ? "red" : "",
+                        color: el.favorite || status ? "red" : "",
+                        fill: el.favorite || status ? "red" : "",
                       }}
                       onClick={(e) => {
                         e.target.style.fill = "red";

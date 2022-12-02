@@ -90,7 +90,7 @@ const FilterSearch = () => {
     if (clickDisable) {
       if (reset) {
         axios
-          .post(`http://localhost:8080/getdata/?page=1`, payload)
+          .post(`https://projectpresent.vercel.app/getdata/?page=1`, payload)
           .then((res) => {
             setData(res.data);
           })
@@ -99,7 +99,7 @@ const FilterSearch = () => {
           });
       } else {
         axios
-          .post(`http://localhost:8080/getdata/?page=${page}`, payload)
+          .post(`https://projectpresent.vercel.app/getdata/?page=${page}`, payload)
           .then((res) => {
             setData([...data, ...res.data]);
           })
